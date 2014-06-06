@@ -47,7 +47,7 @@ prefork = lambda {
     # config.mock_with :rr
 
     config.fixture_path = "#{::Rails.root}/spec/fixtures"
-    config.use_transactional_fixtures = true
+    config.use_transactional_fixtures = false
     config.infer_base_class_for_anonymous_controllers = false
     config.order = "random"
     config.infer_spec_type_from_file_location!
@@ -58,31 +58,31 @@ prefork = lambda {
     config.include(EmailSpec::Matchers)
     config.include FactoryGirl::Syntax::Methods
 
+    config.before(:suite) do
+      DatabaseCleaner.clean_with(:truncation)
+    end
+
+    config.before(:each) do
+      DatabaseCleaner.strategy = :transaction
+    end
+
+    config.before(:each, :js => true) do
+      DatabaseCleaner.strategy = :truncation
+    end
+
     config.before(:each) do
       WebMock.reset!
+      DatabaseCleaner.start
     end
 
-    config.after(:suite) do
-      ActiveRecord::Base.connection.execute("DEALLOCATE ALL")
-    end
-  end
-
-  #####################
-  #Monkey patch for shared connections
-  #####################
-  class ActiveRecord::Base
-    mattr_accessor :shared_connection
-    @@shared_connection = nil
-
-    def self.connection
-      @@shared_connection || retrieve_connection
+    config.after(:each) do
+      DatabaseCleaner.clean
     end
   end
 }
 
 each_run = lambda {
   ActiveRecord::Migration.maintain_test_schema!
-  ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
   FactoryGirl.reload
 }
 

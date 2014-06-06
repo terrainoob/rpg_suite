@@ -32,6 +32,7 @@ group :development do
   gem 'rails_best_practices', '~> 1.15.0'
   gem 'bullet', '~> 4.9.0'
   gem 'better_errors', '~> 1.1.0'
+  gem 'letter_opener'
 end
 group :development, :test do
   gem 'factory_girl_rails', '~> 4.4.0'
