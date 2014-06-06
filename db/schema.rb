@@ -17,27 +17,27 @@ ActiveRecord::Schema.define(version: 20140603192348) do
   enable_extension "plpgsql"
 
   create_table "characters", force: true do |t|
-    t.integer  "user_id",                null: false
-    t.string   "name",                   null: false
-    t.integer  "level",      default: 1, null: false
+    t.integer  "user_id",                        null: false
+    t.string   "name",                           null: false
+    t.integer  "level",      default: 1,         null: false
     t.string   "deity"
     t.string   "homeland"
-    t.integer  "alignment",  default: 5, null: false
-    t.integer  "size",       default: 3, null: false
-    t.integer  "gender",     default: 0, null: false
+    t.string   "alignment",  default: "neutral", null: false
+    t.string   "size",       default: "medium",  null: false
+    t.string   "gender",     default: "male",    null: false
     t.integer  "age"
     t.string   "height"
     t.integer  "weight"
     t.string   "hair"
     t.string   "eyes"
-    t.integer  "str",        default: 0, null: false
-    t.integer  "dex",        default: 0, null: false
-    t.integer  "con",        default: 0, null: false
-    t.integer  "int",        default: 0, null: false
-    t.integer  "wis",        default: 0, null: false
-    t.integer  "cha",        default: 0, null: false
-    t.integer  "max_hp",     default: 1, null: false
-    t.integer  "current_hp", default: 1, null: false
+    t.integer  "str",        default: 0,         null: false
+    t.integer  "dex",        default: 0,         null: false
+    t.integer  "con",        default: 0,         null: false
+    t.integer  "int",        default: 0,         null: false
+    t.integer  "wis",        default: 0,         null: false
+    t.integer  "cha",        default: 0,         null: false
+    t.integer  "max_hp",     default: 1,         null: false
+    t.integer  "current_hp", default: 1,         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -9,7 +9,7 @@ gem 'jbuilder', '~> 2.0.0'
 gem 'uglifier', '>= 2.3.0'
 gem "email_validator"
 gem 'bootstrap-sass', '~> 3.1.1.0'
-gem 'devise'
+gem 'devise', '~> 3.2.0'
 gem 'figaro', :github=>"laserlemon/figaro"
 gem 'pg', '~> 0.17.0'
 gem 'simple_form', '~> 3.0.0'
@@ -18,6 +18,7 @@ gem 'puma', '~> 2.8.0'
 gem 'acts_as_tenant', '~> 0.3.4'
 gem 'kaminari', '~> 0.15.1'
 gem 'newrelic_rpm', '~> 3.8.0'
+gem 'classy_enum', '~> 3.4.0'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'
@@ -30,9 +31,9 @@ group :development do
   gem 'rack-mini-profiler', '~> 0.9.0'
   gem 'brakeman', :require => false
   gem 'rails_best_practices', '~> 1.15.0'
-  gem 'bullet', '~> 4.9.0'
+  gem 'bullet', '~> 4.0'
   gem 'better_errors', '~> 1.1.0'
-  gem 'letter_opener'
+  gem 'letter_opener', '~> 1.2.0'
 end
 group :development, :test do
   gem 'factory_girl_rails', '~> 4.4.0'

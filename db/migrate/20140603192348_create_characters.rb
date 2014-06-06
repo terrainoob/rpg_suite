@@ -6,9 +6,9 @@ class CreateCharacters < ActiveRecord::Migration
       t.integer :level, default: 1, null: false
       t.string :deity
       t.string :homeland
-      t.integer :alignment, default: 5, null: false
-      t.integer :size, default: 3, null: false
-      t.integer :gender, default: 0, null: false
+      t.string :alignment, default: 'neutral', null: false
+      t.string :size, default: 'medium', null: false
+      t.string :gender, default: 'male', null: false
       t.integer :age
       t.string :height
       t.integer :weight

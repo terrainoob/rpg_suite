@@ -3,24 +3,24 @@
 FactoryGirl.define do
   factory :character do
     user nil
-    name "MyString"
+    name "John"
     level 1
-    deity "MyString"
-    homeland "MyString"
-    alignment 1
-    size 1
-    gender 1
-    age 1
-    height "MyString"
-    weight 1
-    hair "MyString"
-    eyes "MyString"
-    str 1
-    dex 1
-    con 1
-    int 1
-    wis 1
-    cha 1
+    deity ""
+    homeland ""
+    alignment "neutral"
+    size "medium"
+    gender "male"
+    age 25
+    height "6'0"
+    weight 150
+    hair ""
+    eyes ""
+    str 0
+    dex 0
+    con 0
+    int 0
+    wis 0
+    cha 0
     max_hp 1
     current_hp 1
   end
