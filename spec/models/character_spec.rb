@@ -10,7 +10,7 @@ RSpec.describe Character, :type => :model do
     let(:character) {Character.create(name: "John", user: user)}
 
     it "defaults to gender male" do
-      expect(character.gender.male?).to be_truthy
+      expect(character.gender).to eq "male"
     end
 
     it "defaults to alignment neutral" do
