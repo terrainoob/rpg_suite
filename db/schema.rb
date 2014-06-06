@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20140603192348) do
     t.string   "deity"
     t.string   "homeland"
     t.string   "alignment",  default: "neutral", null: false
-    t.string   "size",       default: "medium",  null: false
     t.string   "gender",     default: "male",    null: false
     t.integer  "age"
     t.string   "height"

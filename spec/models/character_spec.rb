@@ -16,9 +16,5 @@ RSpec.describe Character, :type => :model do
     it "defaults to alignment neutral" do
       expect(character.alignment.neutral?).to be_truthy
     end
-
-    it "defaults to size medium" do
-      expect(character.size.medium?).to be_truthy
-    end
   end
 end

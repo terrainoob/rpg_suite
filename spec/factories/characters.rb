@@ -8,7 +8,6 @@ FactoryGirl.define do
     deity ""
     homeland ""
     alignment "neutral"
-    size "medium"
     gender "male"
     age 25
     height "6'0"
