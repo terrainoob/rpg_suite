@@ -11,41 +11,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140606200344) do
+ActiveRecord::Schema.define(version: 20140610174244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "character_classes", force: true do |t|
+    t.string   "name",                 null: false
+    t.text     "description"
+    t.string   "hit_die"
+    t.string   "start_wealth"
+    t.integer  "skills_per_level"
+    t.string   "skills_per_level_mod"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "characters", force: true do |t|
-    t.integer  "user_id",                        null: false
-    t.string   "name",                           null: false
-    t.integer  "level",      default: 1,         null: false
+    t.integer  "user_id",                                null: false
+    t.string   "name",                                   null: false
+    t.integer  "level",              default: 1,         null: false
     t.string   "deity"
     t.string   "homeland"
-    t.string   "alignment",  default: "neutral", null: false
-    t.string   "gender",     default: "male",    null: false
+    t.string   "alignment",          default: "neutral", null: false
+    t.string   "gender",             default: "male",    null: false
     t.integer  "age"
     t.string   "height"
     t.integer  "weight"
     t.string   "hair"
     t.string   "eyes"
-    t.integer  "str",        default: 0,         null: false
-    t.integer  "dex",        default: 0,         null: false
-    t.integer  "con",        default: 0,         null: false
-    t.integer  "int",        default: 0,         null: false
-    t.integer  "wis",        default: 0,         null: false
-    t.integer  "cha",        default: 0,         null: false
-    t.integer  "max_hp",     default: 1,         null: false
-    t.integer  "current_hp", default: 1,         null: false
+    t.integer  "str",                default: 0,         null: false
+    t.integer  "dex",                default: 0,         null: false
+    t.integer  "con",                default: 0,         null: false
+    t.integer  "int",                default: 0,         null: false
+    t.integer  "wis",                default: 0,         null: false
+    t.integer  "cha",                default: 0,         null: false
+    t.integer  "max_hp",             default: 1,         null: false
+    t.integer  "current_hp",         default: 1,         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "race_id"
+    t.integer  "character_class_id"
   end
 
+  add_index "characters", ["character_class_id"], name: "index_characters_on_character_class_id", using: :btree
   add_index "characters", ["user_id"], name: "index_characters_on_user_id", using: :btree
 
   create_table "races", force: true do |t|
-    t.integer  "user_id"
-    t.string   "name"
+    t.string   "name",        null: false
     t.text     "description"
     t.string   "size"
     t.integer  "speed"
@@ -53,8 +66,6 @@ ActiveRecord::Schema.define(version: 20140606200344) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "races", ["user_id"], name: "index_races_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

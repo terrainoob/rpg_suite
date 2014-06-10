@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :race do
-    user nil
     name "TestRace"
     description "Some long description"
     size "medium"

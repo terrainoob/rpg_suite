@@ -22,5 +22,7 @@ FactoryGirl.define do
     cha 0
     max_hp 1
     current_hp 1
+    race
+    character_class
   end
 end
