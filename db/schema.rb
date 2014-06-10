@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610191457) do
+ActiveRecord::Schema.define(version: 20140610193018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,20 @@ ActiveRecord::Schema.define(version: 20140610191457) do
   add_index "characters", ["character_class_id"], name: "index_characters_on_character_class_id", using: :btree
   add_index "characters", ["user_id"], name: "index_characters_on_user_id", using: :btree
 
+  create_table "feats", force: true do |t|
+    t.string   "name",         null: false
+    t.string   "feat_type"
+    t.text     "description"
+    t.string   "url"
+    t.string   "feat_prereq"
+    t.string   "other_prereq"
+    t.string   "benefit"
+    t.text     "normal"
+    t.text     "special"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "races", force: true do |t|
     t.string   "name",        null: false
     t.text     "description"
@@ -99,6 +113,7 @@ ActiveRecord::Schema.define(version: 20140610191457) do
     t.boolean  "untrained"
     t.boolean  "armor_penalty"
     t.string   "key_ability"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

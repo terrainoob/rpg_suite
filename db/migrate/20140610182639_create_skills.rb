@@ -6,6 +6,7 @@ class CreateSkills < ActiveRecord::Migration
       t.boolean :untrained
       t.boolean :armor_penalty
       t.string :key_ability
+      t.string :url
 
       t.timestamps
     end
