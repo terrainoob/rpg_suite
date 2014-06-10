@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610182639) do
+ActiveRecord::Schema.define(version: 20140610190857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "character_class_skills", force: true do |t|
+    t.integer  "character_class_id"
+    t.integer  "skill_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "character_class_skills", ["character_class_id"], name: "index_character_class_skills_on_character_class_id", using: :btree
+  add_index "character_class_skills", ["skill_id"], name: "index_character_class_skills_on_skill_id", using: :btree
 
   create_table "character_classes", force: true do |t|
     t.string   "name",                 null: false

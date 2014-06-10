@@ -2,6 +2,7 @@ require 'spec_helper'
 
 RSpec.describe CharacterClass, :type => :model do
   it { is_expected.to have_many :characters }
+  it { is_expected.to have_many(:skills).through(:character_class_skills) }
   it { is_expected.to validate_presence_of :name }
   it { is_expected.to validate_uniqueness_of(:name)}
 
