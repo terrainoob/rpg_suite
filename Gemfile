@@ -19,6 +19,7 @@ gem 'acts_as_tenant', '~> 0.3.4'
 gem 'kaminari', '~> 0.15.1'
 gem 'newrelic_rpm', '~> 3.8.0'
 gem 'classy_enum', '~> 3.4.0'
+gem 'seedbank', '~> 0.3.0'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'

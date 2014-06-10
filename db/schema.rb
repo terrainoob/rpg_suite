@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20140606200344) do
     t.text     "description"
     t.string   "size"
     t.integer  "speed"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

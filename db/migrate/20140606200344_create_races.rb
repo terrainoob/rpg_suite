@@ -6,6 +6,7 @@ class CreateRaces < ActiveRecord::Migration
       t.text :description
       t.string :size
       t.integer :speed
+      t.string :url
 
       t.timestamps
     end
