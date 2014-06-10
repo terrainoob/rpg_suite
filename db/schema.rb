@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140610174244) do
     t.string   "start_wealth"
     t.integer  "skills_per_level"
     t.string   "skills_per_level_mod"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
