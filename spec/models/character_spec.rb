@@ -4,6 +4,7 @@ RSpec.describe Character, :type => :model do
   it { is_expected.to belong_to :user }
   it { is_expected.to belong_to :race }
   it { is_expected.to belong_to :character_class }
+  it { is_expected.to have_many(:skills).through(:character_skills) }
   it { is_expected.to validate_presence_of :name }
   it { is_expected.to validate_uniqueness_of(:name).scoped_to(:user_id)}
 

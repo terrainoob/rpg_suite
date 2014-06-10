@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :character do
-    user nil
+    user {create :confirmed_user}
     name "John"
     level 1
     deity ""
