@@ -71,7 +71,7 @@ describe DiceRoller do
     roller = DiceRoller.new('3d6 / 2')
     30.times do
       result = roller.result
-      expect(result).to be_between(2,12)
+      expect(result).to be_between(1,12)
       expect(result).to be_kind_of(Integer)
     end
   end
