@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140612184047) do
+ActiveRecord::Schema.define(version: 20140612194708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -171,6 +171,39 @@ ActiveRecord::Schema.define(version: 20140612184047) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "spells", force: true do |t|
+    t.string   "name"
+    t.string   "school"
+    t.string   "subschool"
+    t.text     "description"
+    t.text     "short_description"
+    t.string   "casting_time"
+    t.string   "components"
+    t.boolean  "verbal"
+    t.boolean  "somatic"
+    t.boolean  "material"
+    t.boolean  "focus"
+    t.boolean  "divine_focus"
+    t.string   "range"
+    t.string   "area"
+    t.string   "effect"
+    t.string   "targets"
+    t.string   "duration"
+    t.boolean  "dismissable"
+    t.boolean  "shapeable"
+    t.string   "saving_throw"
+    t.string   "spell_resistance"
+    t.integer  "material_costs"
+    t.string   "url"
+    t.string   "source"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "spells", ["name"], name: "index_spells_on_name", using: :btree
+  add_index "spells", ["school"], name: "index_spells_on_school", using: :btree
+  add_index "spells", ["subschool"], name: "index_spells_on_subschool", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
