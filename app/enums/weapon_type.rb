@@ -9,3 +9,6 @@ end
 
 class WeaponType::Exotic < WeaponType
 end
+
+class WeaponType::Ammunition < WeaponType
+end
