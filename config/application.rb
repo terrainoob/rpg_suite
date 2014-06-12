@@ -15,6 +15,7 @@ Bundler.require(*Rails.groups)
 
 module RpgSuite
   class Application < Rails::Application
+    config.autoload_paths += Dir[Rails.root.join('app', 'classes', '{**/}')]
 
     config.generators do |g|
       g.test_framework :rspec,
