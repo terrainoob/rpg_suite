@@ -8,6 +8,8 @@ RSpec.describe Character, :type => :model do
   it { is_expected.to have_many(:feats).through(:character_feats) }
   it { is_expected.to validate_presence_of :name }
   it { is_expected.to validate_uniqueness_of(:name).scoped_to(:user_id)}
+  it { is_expected.to have_many :active_conditions }
+  it { is_expected.to have_many(:conditions).through(:active_conditions)}
 
   context "a new character" do
     let(:user) {build_stubbed(:confirmed_user)}

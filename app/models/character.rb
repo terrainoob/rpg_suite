@@ -3,6 +3,9 @@ class Character < ActiveRecord::Base
   belongs_to :race
   belongs_to :character_class
 
+  has_many :conditions, through: :active_conditions
+  has_many :active_conditions, as: :conditionable
+
   has_many :character_skills
   has_many :skills, through: :character_skills
 

@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140612145457) do
+ActiveRecord::Schema.define(version: 20140612184047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_conditions", force: true do |t|
+    t.integer  "condition_id"
+    t.integer  "conditionable_id"
+    t.string   "conditionable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "active_conditions", ["condition_id"], name: "index_active_conditions_on_condition_id", using: :btree
+  add_index "active_conditions", ["conditionable_id", "conditionable_type"], name: "index_active_conditions_on_conditionable", unique: true, using: :btree
 
   create_table "armors", force: true do |t|
     t.string   "name",                                  null: false
@@ -107,6 +118,14 @@ ActiveRecord::Schema.define(version: 20140612145457) do
 
   add_index "characters", ["character_class_id"], name: "index_characters_on_character_class_id", using: :btree
   add_index "characters", ["user_id"], name: "index_characters_on_user_id", using: :btree
+
+  create_table "conditions", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "equipment", force: true do |t|
     t.string   "name",                            null: false
