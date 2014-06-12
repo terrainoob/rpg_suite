@@ -109,8 +109,8 @@ ActiveRecord::Schema.define(version: 20140612145457) do
   add_index "characters", ["user_id"], name: "index_characters_on_user_id", using: :btree
 
   create_table "equipment", force: true do |t|
-    t.string   "name"
-    t.string   "equipment_type"
+    t.string   "name",                            null: false
+    t.string   "equipment_type", default: "gear", null: false
     t.string   "cost"
     t.float    "weight"
     t.integer  "craft_dc"

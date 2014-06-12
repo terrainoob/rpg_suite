@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :equipment do
     name "Test Equipment"
-    equipment_type "adventuring"
+    equipment_type "gear"
     cost "1 sp"
     weight 0.5
     craft_dc nil
